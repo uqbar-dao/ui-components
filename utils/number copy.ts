@@ -1,6 +1,11 @@
 import { removeDots } from "./format";
 
+
+
+
 export const formatAmount = (amount: number) => new Intl.NumberFormat('en-US').format(amount);
+
+export const displayTokenAmount = (amount: number, decimals?: number) => formatAmount(amount / Math.pow(10, decimals || 1))
 
 export const addHexDots = (hex: string) => {
   const clearLead = removeDots(hex.replace('0x', '').toLowerCase())
